@@ -15,17 +15,20 @@
         <h2 class="text-center">Expenses</h2>
         <table class="table table-striped">
           <tbody>
-            <tr>
+            <tr id="john">
               <th scope="row">John</th>
               <td>120€</td>
+              <td class="due"></td>
             </tr>
-            <tr>
+            <tr id="paul">
               <th scope="row">Paul</th>
               <td>30€</td>
+              <td class="due"></td>
             </tr>
-            <tr>
+            <tr id="ringo">
               <th scope="row">Ringo</th>
               <td>150€</td>
+              <td class="due"></td>
             </tr>
           </tbody>
         </table>
@@ -34,7 +37,9 @@
       <div class="col-12 col-md-4">
         <h2>Results</h2>
         <div id="results-wrapper">
-          <ul id="results" class="list-unstyled"></ul>
+          <ul id="results" class="list-unstyled">
+
+          </ul>
         </div>
       </div>
     </div>

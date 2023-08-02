@@ -5,18 +5,48 @@
 import runChallenges from "../spec/split_the_bill_examiner.js";
 
 const splitTheBill = (group) => {
-  // TODO 1: Implement the function and return an Object
+  // Step 1: Calculate the total expense
+  const keys = Object.keys(group);
+  let totalExpense = 0;
 
+  keys.forEach((key) => {
+    const expense = parseInt(group[key], 10);
+    totalExpense += expense;
+  });
+
+  // Step 2: Calculate the average expense
+  const people = keys.length;
+  const averageExpense = totalExpense / people;
+
+  // Step 3: Calculate and store the share for each person
+  const balance = {};
+  keys.forEach((key) => {
+    const expense = parseInt(group[key], 10);
+    const shared = expense - averageExpense;
+    balance[key] = shared;
+  });
+
+  return balance;
 };
 
-const updatePriceList = () => {
-  // TODO 2: Call the `splitTheBill(group)` function and display the results of what everyone needs to pay in the HTML
-}
+const updatePriceList = (group) => {
+  // TODO 2: Add the necessary HTML elements to display the results
+  const split = splitTheBill(group);
+  Object.entries(split).forEach((row) => {
+    console.log(document.getElementById(row[0]));
+    document.getElementById(row[0]).querySelector(".due").innerHTML = `${row[1]}€`;
+  });
+};
 
 // Do not remove these lines:
 if (typeof window === "object") {
   document.addEventListener("DOMContentLoaded", () => {
-    updatePriceList();
+    const group = {
+      john: 120,
+      paul: 30,
+      ringo: 150
+    };
+    updatePriceList(group);
   });
 }
 
