@@ -38,6 +38,25 @@
           </div>
         </div>
 
+        <template id="recipeTemplate">
+          <div class="col col-lg-6">
+            <div class="card mb-3">
+              <div class="card-header">
+                <h2>{{name}}</h2>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Ingredients:</h5>
+                <ul class="list-group">
+                  {{#ingredients}}
+                  <li class="list-group-item">{{.}}</li>
+                  {{/ingredients}}
+                </ul>
+                <h5 class="card-title mt-3">Difficulty: {{difficulty}}/10</h5>
+              </div>
+            </div>
+          </div>
+        </template>
+
         <div id="recipesContainer" class="row"></div>
       </div>
     </div>
